@@ -1,18 +1,19 @@
 #include <stdio.h>
-int main(void){
-    int bangdiem[][3] = {
-        {7, 9, 8} ,    
-        {8, 6, 7} ,     
-        {5, 7, 6} ,    
-        {4, 9, 5} ,    
-        {5, 8, 7} ,    
-        {6, 9, 3}
-    } ;
+#include <stdlib.h>
+#include <time.h>
 
-     //Lấy độ dài của mảng 2 chiều
-    int y = sizeof(bangdiem) / sizeof(bangdiem[0]);          
-    int x = sizeof(bangdiem[0]) / sizeof(bangdiem[0][0]);
-
-    printf("So phan tu cua mang 2 chieu: %d",y * x);
+//Tạo hàm GetRandom để chỉ định phạm vi sinh số ngẫu nhiên
+int GetRandom(int min,int max){
+    return min + (int)(rand()*(max-min+1.0)/(1.0+RAND_MAX));
 }
-//So phan tu cua mang 2 chieu: 18
+
+int main(void){
+    //Sử dụng hàm srand để thay đổi số nguồn sử dụng trong hàm rand
+    srand((unsigned int)time(NULL));
+    
+    for (int i = 0;i < 10;i++) {
+        printf("%d\n",GetRandom(1,6));
+    }
+    
+    return 0;
+}
