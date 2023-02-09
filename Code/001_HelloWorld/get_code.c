@@ -1,12 +1,13 @@
 #include <stdio.h>
+#include <string.h>
 
-int main(void){
-    //Mở file
-    FILE * fp = NULL;
-    fp = fopen("memo.txt", "w");
+int main()
+{
+    char str[30] = "We are Stdio's Writers";
+    printf("%s\n", str);
 
-    //Đóng file
-    fclose(fp);
+    memset(str + 3, '@', 10); // set 10 byte từ vị trí thứ 4 của str thành @
+    printf("%s\n", str);
 
     return 0;
 }
